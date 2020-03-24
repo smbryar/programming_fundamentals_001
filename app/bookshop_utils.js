@@ -14,9 +14,14 @@ function countBooks(titleArray) {
     return titleArray.length;
 }
 
+function isInStock(book) {
+    return book.quantity > 0;
+}
+
 module.exports = {
     addVAT,
     getFullName,
     makeHalfPrice,
-    countBooks
+    countBooks,
+    isInStock,
 };
