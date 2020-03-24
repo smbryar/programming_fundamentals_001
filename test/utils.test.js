@@ -2,15 +2,15 @@ const utils = require('../app/bookshop_utils');
 
 describe("utils.addVAT", () => {
   test("returns 36 when passed 30", () => {
-    expect(utils.addVAT(30)).toBe(36);
+    expect(utils.addVAT(30)).toBeCloseTo(36,5);
   });
 
   test("returns 120 when passed 100", () => {
-    expect(utils.addVAT(100)).toBe(120);
+    expect(utils.addVAT(100)).toBeCloseTo(120,5);
   });
 
   test("returns 118.8 when passed 99", () => {
-    expect(utils.addVAT(99)).toBe(118.8);
+    expect(utils.addVAT(99)).toBeCloseTo(118.8,5);
   });
 });
 
@@ -22,7 +22,7 @@ describe("utils.getFullName", () => {
 
 describe("utils.makeHalfPrice", () => {
   test("returns 25 when passed 50", () => {
-    expect(utils.makeHalfPrice(50)).toBe(25);
+    expect(utils.makeHalfPrice(50)).toBeCloseTo(25,5);
   });
 })
 
@@ -53,5 +53,15 @@ describe("utils.isInStock", () => {
     };
 
     expect(utils.isInStock(book)).toBe(false);
+  });
+})
+
+describe("utils.getTotalOrderPrice", () => {
+  test("returns 96 when passed price 8 and quantity 10", () => {
+    expect(utils.getTotalOrderPrice(8,10)).toBeCloseTo(96,5);
+  });
+
+  test("returns 43.2 when passed price 18 and quantity 2", () => {
+    expect(utils.getTotalOrderPrice(18,2)).toBeCloseTo(43.2,5);
   });
 })

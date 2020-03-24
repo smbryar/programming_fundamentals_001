@@ -18,10 +18,15 @@ function isInStock(book) {
     return book.quantity > 0;
 }
 
+function getTotalOrderPrice(price, quantity) {
+    return price * quantity * 1.2;
+}
+
 module.exports = {
     addVAT,
     getFullName,
     makeHalfPrice,
     countBooks,
     isInStock,
+    getTotalOrderPrice
 };
